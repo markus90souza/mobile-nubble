@@ -1,15 +1,19 @@
-import React from 'react';
-import {Text as RNText, TextProps as RNTextProps} from 'react-native';
-import {$fontSizes, TextVariants, getFontFamily} from './types';
+import React, {ComponentProps} from 'react';
 
-interface TextProps extends RNTextProps {
+import {$fontSizes, TextVariants, getFontFamily} from './types';
+import {Theme} from '../../theme';
+import {createText} from '@shopify/restyle';
+
+const RSText = createText<Theme>();
+type RSTextProps = ComponentProps<typeof RSText>;
+interface TextProps extends RSTextProps {
   preset?: TextVariants;
   bold?: boolean;
   italic?: boolean;
   semiBold?: boolean;
 }
 
-export function Text({
+export const Text = ({
   children,
   style,
   preset = 'paragraphMedium',
@@ -17,11 +21,14 @@ export function Text({
   italic,
   semiBold,
   ...rest
-}: TextProps) {
+}: TextProps) => {
   const fontFamily = getFontFamily(preset, bold, italic, semiBold);
   return (
-    <RNText style={[$fontSizes[preset], {fontFamily}, style]} {...rest}>
+    <RSText
+      color="backgroundContrast"
+      style={[$fontSizes[preset], {fontFamily}, style]}
+      {...rest}>
       {children}
-    </RNText>
+    </RSText>
   );
-}
+};
