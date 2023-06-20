@@ -4,7 +4,9 @@ import {SafeAreaView} from 'react-native';
 import {Text} from './src/components/Text';
 import {ThemeProvider} from '@shopify/restyle';
 import {theme} from './src/theme';
-import {Button} from './src/components/Button';
+
+import {Icon} from './src/components/Icon';
+import {Box} from './src/components/Box';
 
 function App(): JSX.Element {
   return (
@@ -17,14 +19,10 @@ function App(): JSX.Element {
           alignItems: 'center',
           gap: 12,
         }}>
-        <Button title="Outline Loading" variant="outline" loading />
-        <Button title="Primary Loading" variant="primary" loading />
-        <Button title="Outline" variant="outline" />
-        <Button title="Primary" variant="primary" />
-        <Button title="Primary Disabled" variant="primary" disabled />
-        <Button title="Outline Disabled" variant="outline" disabled />
-        <Button title="Primary Disabled" variant="primary" disabled loading />
-        <Button title="Outline Disabled" variant="outline" disabled loading />
+        <Box flexDirection="column">
+          <Icon name="eyeOn" size={40} color="errorLight" />
+          <Icon name="eyeOff" size={40} color="error" />
+        </Box>
 
         <Text italic bold>
           Coofe
