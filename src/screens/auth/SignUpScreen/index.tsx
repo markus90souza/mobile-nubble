@@ -6,7 +6,7 @@ export const SignUpScreen = () => {
     // Implementar
   };
   return (
-    <Screen canGoBack>
+    <Screen canGoBack scrollable>
       <Text mb="s32" preset="headingLarge">
         Criar sua conta
       </Text>
