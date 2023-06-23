@@ -1,11 +1,10 @@
 import React, {FC, ReactElement, useRef} from 'react';
 import {Pressable, TextInput, TextInputProps, TextStyle} from 'react-native';
-import {Box, BoxProps} from '../Box';
-import {Text} from '../Text';
-import {$fontFamily, $fontSizes} from '../Text/types';
-import {useAppTheme} from '../../hooks/useAppTheme';
+import {Text, Box, BoxProps} from '@components/index';
+import {$fontFamily, $fontSizes} from '@components/Text/types';
+import {useAppTheme} from '@hooks/useAppTheme';
 
-interface InputProps extends TextInputProps {
+export interface InputProps extends TextInputProps {
   label: string;
   errorMessage?: string;
   RightComponent?: ReactElement;

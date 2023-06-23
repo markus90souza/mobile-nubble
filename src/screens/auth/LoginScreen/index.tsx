@@ -1,6 +1,7 @@
 import React from 'react';
-import {Icon, Input, Text, Button} from '@components/index';
+import {Input, Text, Button} from '@components/index';
 import {Screen} from '@components/Screen';
+import {PasswordInput} from '@components/PasswordInput';
 
 export const LoginScreen = () => {
   return (
@@ -21,10 +22,9 @@ export const LoginScreen = () => {
         }}
       />
 
-      <Input
+      <PasswordInput
         label="Senha"
         placeholder="Digite sua senha"
-        RightComponent={<Icon name="eyeOn" color="gray2" />}
         boxProps={{
           mb: 's20',
         }}

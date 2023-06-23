@@ -4,7 +4,8 @@ import {ThemeProvider} from '@shopify/restyle';
 import {theme} from '@theme/index';
 
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {SignUpScreen} from '@screens/auth/SignUpScreen';
+
+import {LoginScreen} from '@screens/auth/LoginScreen';
 
 export const App = () => {
   return (
@@ -15,7 +16,7 @@ export const App = () => {
           backgroundColor={'transparent'}
           barStyle={'dark-content'}
         />
-        <SignUpScreen />
+        <LoginScreen />
       </ThemeProvider>
     </SafeAreaProvider>
   );

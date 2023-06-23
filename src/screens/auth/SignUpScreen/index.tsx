@@ -1,5 +1,6 @@
 import React from 'react';
-import {Icon, Input, Text, Button, Screen} from '@components/index';
+import {Input, Text, Button, Screen} from '@components/index';
+import {PasswordInput} from '@components/PasswordInput';
 
 export const SignUpScreen = () => {
   const handleCreateAccount = () => {
@@ -25,10 +26,9 @@ export const SignUpScreen = () => {
         boxProps={{mb: 's20'}}
       />
 
-      <Input
+      <PasswordInput
         label="Sua Senha"
         placeholder="Digite sua senha"
-        RightComponent={<Icon name="eyeOn" color="gray2" />}
         boxProps={{mb: 's20'}}
       />
 
