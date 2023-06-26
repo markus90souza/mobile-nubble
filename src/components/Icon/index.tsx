@@ -5,7 +5,7 @@ import {ThemeColors} from '../../theme';
 
 import {IconName, icons} from './types';
 
-type IconProps = {
+export type IconProps = {
   name: IconName;
   color?: ThemeColors;
   size?: number;

@@ -1,11 +1,29 @@
 import React from 'react';
 import {Input, Text, Button, Screen} from '@components/index';
 import {PasswordInput} from '@components/PasswordInput';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '@routes/Routes';
+import {useResetNavigation} from '@hooks/useResetNavigation';
 
-export const SignUpScreen = () => {
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const SignUpScreen = ({navigation}: ScreenProps) => {
+  const {reset} = useResetNavigation();
+
   const handleCreateAccount = () => {
     // Implementar
+
+    reset({
+      title: 'Sua conta foi criada com sucesso!',
+      description: 'Agora é só fazer login na nossa plataforma',
+      icon: {
+        name: 'checkRound',
+        color: 'success',
+      },
+    });
   };
+
   return (
     <Screen canGoBack scrollable>
       <Text mb="s32" preset="headingLarge">

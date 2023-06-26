@@ -1,3 +1,4 @@
+import {CheckRoundIcon} from '@assets/icons/CheckRoundIcon';
 import {ArrowLeftIcon} from '../../assets/icons/ArrowLeftIcon';
 import {ArrowRightIcon} from '../../assets/icons/ArrowRightIcon';
 import {BellIcon} from '../../assets/icons/BellIcon';
@@ -25,6 +26,7 @@ import {ProfileIcon} from '../../assets/icons/ProfileIcon';
 import {SearchIcon} from '../../assets/icons/SearchIcon';
 import {SettingsIcon} from '../../assets/icons/SettingsIcon';
 import {TrashIcon} from '../../assets/icons/TrashIcon';
+import {MessageRoundIcon} from '@assets/icons/MessageRoundIcon';
 
 export {
   EyeOffIcon,
@@ -54,4 +56,6 @@ export {
   MessageIcon,
   NewPostIcon,
   ArrowLeftIcon,
+  CheckRoundIcon,
+  MessageRoundIcon,
 };

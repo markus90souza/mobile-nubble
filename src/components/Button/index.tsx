@@ -1,3 +1,4 @@
+import React from 'react';
 import {ButtonVariant, buttonVariants} from './types';
 
 interface ButtonProps extends TouchableOpacityBoxProps {
@@ -7,7 +8,7 @@ interface ButtonProps extends TouchableOpacityBoxProps {
   disabled?: boolean;
 }
 
-import {Text} from './../Text';
+import {Text} from '@components/index';
 
 import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box';
 

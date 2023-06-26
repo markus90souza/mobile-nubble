@@ -1,3 +1,4 @@
+import React from 'react';
 import {ActivityIndicator, ActivityIndicatorProps} from 'react-native';
 import {Theme, ThemeColors} from '../../theme';
 import {useTheme} from '@shopify/restyle';

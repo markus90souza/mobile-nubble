@@ -26,6 +26,8 @@ import {
   SearchIcon,
   SettingsIcon,
   TrashIcon,
+  CheckRoundIcon,
+  MessageRoundIcon,
 } from './icons';
 
 export type IconBase = {
@@ -61,6 +63,8 @@ export const icons = {
   search: SearchIcon,
   settings: SettingsIcon,
   trash: TrashIcon,
+  checkRound: CheckRoundIcon,
+  messageRound: MessageRoundIcon,
 };
 
 type IconType = typeof icons;

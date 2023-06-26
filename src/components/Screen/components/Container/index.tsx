@@ -3,7 +3,6 @@ import {View, ScrollView} from 'react-native';
 
 interface Props {
   children: ReactNode;
-
   backgroundColor: string;
 }
 
@@ -19,5 +18,5 @@ export const ScrollContainer: FC<Props> = ({children, backgroundColor}) => {
 };
 
 export const ViewContainer: FC<Props> = ({children, backgroundColor}) => {
-  return <View style={{backgroundColor}}>{children}</View>;
+  return <View style={{backgroundColor, flex: 1}}>{children}</View>;
 };
