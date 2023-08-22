@@ -3,6 +3,7 @@ import {Pressable, TextInput, TextInputProps, TextStyle} from 'react-native';
 import {Text, Box, BoxProps} from '@components/index';
 import {$fontFamily, $fontSizes} from '@components/Text/types';
 import {useAppTheme} from '@hooks/useAppTheme';
+import {theme} from '@theme/index';
 
 export interface InputProps extends TextInputProps {
   label: string;
@@ -45,6 +46,7 @@ export const Input: FC<InputProps> = ({
             ref={inputRef}
             style={$inputStyle}
             placeholderTextColor={colors.gray2}
+            autoCapitalize={'none'}
             {...rest}
           />
           {/* Icon */}
@@ -70,6 +72,7 @@ const $inputStyle: TextStyle = {
   flexGrow: 1,
   flexShrink: 1,
   padding: 0,
+  color: theme.colors.grayBlack,
   fontFamily: $fontFamily.regular,
   ...$fontSizes.paragraphMedium,
 };

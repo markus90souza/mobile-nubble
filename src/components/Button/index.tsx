@@ -8,11 +8,9 @@ interface ButtonProps extends TouchableOpacityBoxProps {
   disabled?: boolean;
 }
 
-import {Text} from '@components/index';
+import {Text, Loader} from '@components/index';
 
 import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box';
-
-import {Loader} from '../Loader';
 
 export const Button = ({
   title,
