@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, Button, Screen} from '@components/index';
-
+import {zodResolver} from '@hookform/resolvers/zod';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '@routes/Routes';
 //import {useResetNavigation} from '@hooks/useResetNavigation';
@@ -10,19 +10,15 @@ import {ControlledPasswordInput} from '@components/Form/ControlledIPasswordnput'
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
-type SignUpFormType = {
-  username: string;
-  fullName: string;
-  email: string;
-  password: string;
-};
+import {SignUpSchema, signUpSchema} from './signUpSchema';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const SignUpScreen = ({navigation}: ScreenProps) => {
   //const {reset} = useResetNavigation();
 
-  const {control, handleSubmit, formState} = useForm<SignUpFormType>({
+  const {control, handleSubmit, formState} = useForm<SignUpSchema>({
     mode: 'onChange',
+    resolver: zodResolver(signUpSchema),
     defaultValues: {
       username: '',
       fullName: '',
@@ -31,7 +27,7 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
     },
   });
 
-  const handleCreateAccount = (data: SignUpFormType) => {
+  const handleCreateAccount = (data: SignUpSchema) => {
     console.log(data);
     // Implementar
     // reset({
@@ -53,7 +49,6 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
       <ControlledInput
         name="username"
         control={control}
-        rules={{required: 'O username é obrigário'}}
         label="Seu username"
         placeholder="@"
         boxProps={{mb: 's20'}}
@@ -62,7 +57,6 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
       <ControlledInput
         name="fullName"
         control={control}
-        rules={{required: 'O nome completo é obrigário'}}
         label="Nome completo"
         placeholder="Digite sue nome completo"
         boxProps={{mb: 's20'}}
@@ -71,7 +65,6 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
       <ControlledInput
         name="email"
         control={control}
-        rules={{required: 'O email é obrigário'}}
         label="E-mail"
         placeholder="seu@email.com"
         boxProps={{mb: 's20'}}
@@ -80,7 +73,6 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
       <ControlledPasswordInput
         name="password"
         control={control}
-        rules={{required: 'A senha é obrigária'}}
         label="Sua Senha"
         placeholder="Digite sua senha"
         boxProps={{mb: 's20'}}

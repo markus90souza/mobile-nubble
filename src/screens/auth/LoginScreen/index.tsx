@@ -1,27 +1,27 @@
 import React from 'react';
-import {Input, Text, Button, Screen, PasswordInput} from '@components/index';
+import {Text, Button, Screen} from '@components/index';
 
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '@routes/Routes';
-import {Controller, useForm} from 'react-hook-form';
+import {useForm} from 'react-hook-form';
+import {LoginSchema, loginSchema} from './loginSchema';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {ControlledInput} from '@components/Form/ControlledInput';
+import {ControlledPasswordInput} from '@components/Form/ControlledIPasswordnput';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
 
-type LoginFormData = {
-  email: string;
-  password: string;
-};
-
 export const LoginScreen = ({navigation}: ScreenProps) => {
-  const {control, formState, handleSubmit} = useForm<LoginFormData>({
+  const {control, formState, handleSubmit} = useForm<LoginSchema>({
     mode: 'onChange',
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
       password: '',
     },
   });
 
-  const handleLoginForm = (data: LoginFormData) => {
+  const handleLoginForm = (data: LoginSchema) => {
     console.log(data);
   };
 
@@ -42,40 +42,24 @@ export const LoginScreen = ({navigation}: ScreenProps) => {
         Digite seu e-mail e senha para entrar
       </Text>
 
-      <Controller
+      <ControlledInput
         name="email"
         control={control}
-        rules={{required: 'Email e obrigatorio'}}
-        render={({field, fieldState: {error}}) => (
-          <Input
-            onChangeText={field.onChange}
-            value={field.value}
-            errorMessage={error?.message}
-            label="E-mail"
-            placeholder="Digite seu e-mail"
-            boxProps={{
-              mb: 's20',
-            }}
-          />
-        )}
+        label="E-mail"
+        placeholder="Digite seu e-mail"
+        boxProps={{
+          mb: 's20',
+        }}
       />
 
-      <Controller
+      <ControlledPasswordInput
         name="password"
         control={control}
-        rules={{required: 'Senha e obrigatorio'}}
-        render={({field, fieldState: {error}}) => (
-          <PasswordInput
-            onChangeText={field.onChange}
-            value={field.value}
-            errorMessage={error?.message}
-            label="Senha"
-            placeholder="Digite sua senha"
-            boxProps={{
-              mb: 's8',
-            }}
-          />
-        )}
+        label="Senha"
+        placeholder="Digite sua senha"
+        boxProps={{
+          mb: 's8',
+        }}
       />
 
       <Text
