@@ -1,10 +1,12 @@
 import React from 'react';
-import {Input, Text, Button, Screen} from '@components/index';
-import {PasswordInput} from '@components/PasswordInput';
+import {Text, Button, Screen} from '@components/index';
+
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '@routes/Routes';
-import {useResetNavigation} from '@hooks/useResetNavigation';
-import {Controller, useForm} from 'react-hook-form';
+//import {useResetNavigation} from '@hooks/useResetNavigation';
+import {useForm} from 'react-hook-form';
+import {ControlledInput} from '@components/Form/ControlledInput';
+import {ControlledPasswordInput} from '@components/Form/ControlledIPasswordnput';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
@@ -17,7 +19,7 @@ type SignUpFormType = {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const SignUpScreen = ({navigation}: ScreenProps) => {
-  const {reset} = useResetNavigation();
+  //const {reset} = useResetNavigation();
 
   const {control, handleSubmit, formState} = useForm<SignUpFormType>({
     mode: 'onChange',
@@ -29,17 +31,17 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
     },
   });
 
-  const handleCreateAccount = () => {
+  const handleCreateAccount = (data: SignUpFormType) => {
+    console.log(data);
     // Implementar
-
-    reset({
-      title: 'Sua conta foi criada com sucesso!',
-      description: 'Agora é só fazer login na nossa plataforma',
-      icon: {
-        name: 'checkRound',
-        color: 'success',
-      },
-    });
+    // reset({
+    //   title: 'Sua conta foi criada com sucesso!',
+    //   description: 'Agora é só fazer login na nossa plataforma',
+    //   icon: {
+    //     name: 'checkRound',
+    //     color: 'success',
+    //   },
+    // });
   };
 
   return (
@@ -48,68 +50,40 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
         Criar sua conta
       </Text>
 
-      <Controller
+      <ControlledInput
         name="username"
         control={control}
         rules={{required: 'O username é obrigário'}}
-        render={({field, fieldState}) => (
-          <Input
-            value={field.value}
-            onChangeText={field.onChange}
-            label="Seu username"
-            placeholder="@"
-            boxProps={{mb: 's20'}}
-            errorMessage={fieldState.error?.message}
-          />
-        )}
+        label="Seu username"
+        placeholder="@"
+        boxProps={{mb: 's20'}}
       />
 
-      <Controller
+      <ControlledInput
         name="fullName"
         control={control}
         rules={{required: 'O nome completo é obrigário'}}
-        render={({field, fieldState}) => (
-          <Input
-            value={field.value}
-            onChangeText={field.onChange}
-            label="Nome completo"
-            placeholder="Digite sue nome completo"
-            boxProps={{mb: 's20'}}
-            errorMessage={fieldState.error?.message}
-          />
-        )}
+        label="Nome completo"
+        placeholder="Digite sue nome completo"
+        boxProps={{mb: 's20'}}
       />
 
-      <Controller
+      <ControlledInput
         name="email"
         control={control}
         rules={{required: 'O email é obrigário'}}
-        render={({field, fieldState}) => (
-          <Input
-            value={field.value}
-            onChangeText={field.onChange}
-            label="E-mail"
-            placeholder="seu@email.com"
-            boxProps={{mb: 's20'}}
-            errorMessage={fieldState.error?.message}
-          />
-        )}
+        label="E-mail"
+        placeholder="seu@email.com"
+        boxProps={{mb: 's20'}}
       />
 
-      <Controller
+      <ControlledPasswordInput
         name="password"
         control={control}
         rules={{required: 'A senha é obrigária'}}
-        render={({field, fieldState}) => (
-          <PasswordInput
-            value={field.value}
-            onChangeText={field.onChange}
-            label="Sua Senha"
-            placeholder="Digite sua senha"
-            boxProps={{mb: 's20'}}
-            errorMessage={fieldState.error?.message}
-          />
-        )}
+        label="Sua Senha"
+        placeholder="Digite sua senha"
+        boxProps={{mb: 's20'}}
       />
 
       <Button

@@ -1,20 +1,21 @@
 import React from 'react';
-import {Input, InputProps} from '@components/Input';
-import {Controller, FieldValues, UseControllerProps} from 'react-hook-form';
 
-export function ControlledInput<FormType extends FieldValues>({
+import {Controller, FieldValues, UseControllerProps} from 'react-hook-form';
+import {PasswordInput, PasswordInputProps} from '@components/PasswordInput';
+
+export function ControlledPasswordInput<FormType extends FieldValues>({
   control,
   name,
   rules,
   ...rest
-}: InputProps & UseControllerProps<FormType>) {
+}: PasswordInputProps & UseControllerProps<FormType>) {
   return (
     <Controller
       name={name}
       control={control}
       rules={rules}
       render={({field, fieldState}) => (
-        <Input
+        <PasswordInput
           value={field.value}
           onChangeText={field.onChange}
           errorMessage={fieldState.error?.message}
