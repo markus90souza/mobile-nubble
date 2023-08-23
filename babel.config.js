@@ -6,14 +6,15 @@ module.exports = {
       {
         root: ['.'],
         alias: {
-          '@components': './src/components',
+          '@types': './src/types',
           '@assets': './src/assets',
-          '@screens': './src/screens',
-          '@routes': './src/routes',
+          '@components': './src/components',
           '@hooks': './src/hooks',
+          '@routes': './src/routes',
+          '@screens': './src/screens',
           '@theme': './src/theme',
         },
       },
     ],
   ],
-};
+}

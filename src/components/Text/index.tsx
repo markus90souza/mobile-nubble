@@ -1,16 +1,17 @@
-import React, {ComponentProps} from 'react';
+import React, { ComponentProps } from 'react'
 
-import {$fontSizes, TextVariants, getFontFamily} from './types';
-import {Theme} from '../../theme';
-import {createText} from '@shopify/restyle';
+import { createText } from '@shopify/restyle'
+import { Theme } from '@theme/index'
 
-const RSText = createText<Theme>();
-type RSTextProps = ComponentProps<typeof RSText>;
+import { $fontSizes, TextVariants, getFontFamily } from './types'
+
+const RSText = createText<Theme>()
+type RSTextProps = ComponentProps<typeof RSText>
 interface TextProps extends RSTextProps {
-  preset?: TextVariants;
-  bold?: boolean;
-  italic?: boolean;
-  semiBold?: boolean;
+  preset?: TextVariants
+  bold?: boolean
+  italic?: boolean
+  semiBold?: boolean
 }
 
 export const Text = ({
@@ -22,13 +23,14 @@ export const Text = ({
   semiBold,
   ...rest
 }: TextProps) => {
-  const fontFamily = getFontFamily(preset, bold, italic, semiBold);
+  const fontFamily = getFontFamily(preset, bold, italic, semiBold)
   return (
     <RSText
       color="backgroundContrast"
-      style={[$fontSizes[preset], {fontFamily}, style]}
-      {...rest}>
+      style={[$fontSizes[preset], { fontFamily }, style]}
+      {...rest}
+    >
       {children}
     </RSText>
-  );
-};
+  )
+}

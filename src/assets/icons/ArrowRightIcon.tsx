@@ -1,8 +1,12 @@
-import React, {FC} from 'react';
-import {Svg, Path} from 'react-native-svg';
-import {IconBase} from '@components/Icon/types';
+import React, { FC } from 'react'
 
-export const ArrowRightIcon: FC<IconBase> = ({size = 20, color = 'black'}) => {
+import { IconBase } from '@components/Icon/types'
+import { Svg, Path } from 'react-native-svg'
+
+export const ArrowRightIcon: FC<IconBase> = ({
+  size = 20,
+  color = 'black',
+}) => {
   return (
     <Svg width={size} height={size} viewBox="0 0 20 20" fill="none">
       <Path
@@ -12,5 +16,5 @@ export const ArrowRightIcon: FC<IconBase> = ({size = 20, color = 'black'}) => {
         fill={color}
       />
     </Svg>
-  );
-};
+  )
+}

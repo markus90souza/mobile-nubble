@@ -1,22 +1,20 @@
-import React from 'react';
-import {Text, Button, Screen} from '@components/index';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '@routes/Routes';
-//import {useResetNavigation} from '@hooks/useResetNavigation';
-import {useForm} from 'react-hook-form';
-import {ControlledInput} from '@components/Form/ControlledInput';
-import {ControlledPasswordInput} from '@components/Form/ControlledIPasswordnput';
+import React from 'react'
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
+import { ControlledInput } from '@components/Form/ControlledInput'
+import { ControlledPasswordInput } from '@components/Form/ControlledIPasswordnput'
+import { Text, Button, Screen } from '@components/index'
+import { zodResolver } from '@hookform/resolvers/zod'
+// import {useResetNavigation} from '@hooks/useResetNavigation';
+import { useForm } from 'react-hook-form'
 
-import {SignUpSchema, signUpSchema} from './signUpSchema';
+import { AuthScreenProps } from './../../../types/navigation'
+import { SignUpSchema, signUpSchema } from './signUpSchema'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const SignUpScreen = ({navigation}: ScreenProps) => {
-  //const {reset} = useResetNavigation();
+export const SignUp = ({ navigation }: AuthScreenProps<'signUp'>) => {
+  // const {reset} = useResetNavigation();
 
-  const {control, handleSubmit, formState} = useForm<SignUpSchema>({
+  const { control, handleSubmit, formState } = useForm<SignUpSchema>({
     mode: 'onChange',
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -25,10 +23,10 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
       email: '',
       password: '',
     },
-  });
+  })
 
   const handleCreateAccount = (data: SignUpSchema) => {
-    console.log(data);
+    console.log(data)
     // Implementar
     // reset({
     //   title: 'Sua conta foi criada com sucesso!',
@@ -38,7 +36,7 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
     //     color: 'success',
     //   },
     // });
-  };
+  }
 
   return (
     <Screen canGoBack scrollable>
@@ -51,7 +49,7 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
         control={control}
         label="Seu username"
         placeholder="@"
-        boxProps={{mb: 's20'}}
+        boxProps={{ mb: 's20' }}
       />
 
       <ControlledInput
@@ -59,7 +57,7 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
         control={control}
         label="Nome completo"
         placeholder="Digite sue nome completo"
-        boxProps={{mb: 's20'}}
+        boxProps={{ mb: 's20' }}
       />
 
       <ControlledInput
@@ -67,7 +65,7 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
         control={control}
         label="E-mail"
         placeholder="seu@email.com"
-        boxProps={{mb: 's20'}}
+        boxProps={{ mb: 's20' }}
       />
 
       <ControlledPasswordInput
@@ -75,7 +73,7 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
         control={control}
         label="Sua Senha"
         placeholder="Digite sua senha"
-        boxProps={{mb: 's20'}}
+        boxProps={{ mb: 's20' }}
       />
 
       <Button
@@ -84,5 +82,5 @@ export const SignUpScreen = ({navigation}: ScreenProps) => {
         onPress={handleSubmit(handleCreateAccount)}
       />
     </Screen>
-  );
-};
+  )
+}

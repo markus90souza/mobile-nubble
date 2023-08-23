@@ -1,36 +1,32 @@
-import React from 'react';
-import {Screen, Text, Button} from '@components/index';
+import React from 'react'
 
-import {RootStackParamList} from '@routes/Routes';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-//import {useResetNavigation} from '@hooks/useResetNavigation';
-import {ControlledInput} from '@components/Form/ControlledInput';
-import {zodResolver} from '@hookform/resolvers/zod';
+import { ControlledInput } from '@components/Form/ControlledInput'
+import { Screen, Text, Button } from '@components/index'
+import { zodResolver } from '@hookform/resolvers/zod'
+// import {useResetNavigation} from '@hooks/useResetNavigation';
+import { useForm } from 'react-hook-form'
+
+import { AuthScreenProps } from './../../../types/navigation'
 import {
   ForgotPasswordSchema,
   forgotPasswordSchema,
-} from './forgotPasswordSchema';
-import {useForm} from 'react-hook-form';
+} from './forgotPasswordSchema'
 
-type ScreenProps = NativeStackScreenProps<
-  RootStackParamList,
-  'ForgotPasswordScreen'
->;
+export const ForgotPassword = ({
+  navigation,
+}: AuthScreenProps<'forgotPassword'>) => {
+  // const {reset} = useResetNavigation();
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const ForgotPasswordScreen = ({navigation}: ScreenProps) => {
-  //const {reset} = useResetNavigation();
-
-  const {control, handleSubmit, formState} = useForm<ForgotPasswordSchema>({
+  const { control, handleSubmit, formState } = useForm<ForgotPasswordSchema>({
     mode: 'onChange',
     resolver: zodResolver(forgotPasswordSchema),
     defaultValues: {
       email: '',
     },
-  });
+  })
 
   const handleForgotPassword = (data: ForgotPasswordSchema) => {
-    console.log(data);
+    console.log(data)
     // reset({
     //   title: `Enviamos as ${'\n'}instruções para seu e-mail`,
     //   description:
@@ -40,7 +36,7 @@ export const ForgotPasswordScreen = ({navigation}: ScreenProps) => {
     //     color: 'primary',
     //   },
     // });
-  };
+  }
   return (
     <Screen canGoBack>
       <Text preset="headingLarge" marginBottom="s16">
@@ -76,5 +72,5 @@ export const ForgotPasswordScreen = ({navigation}: ScreenProps) => {
         onPress={handleSubmit(handleForgotPassword)}
       />
     </Screen>
-  );
-};
+  )
+}

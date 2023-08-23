@@ -1,17 +1,22 @@
-import React from 'react';
-import {ButtonVariant, buttonVariants} from './types';
+import React from 'react'
+
+import {
+  Text,
+  Loader,
+  TouchableOpacityBox,
+  TouchableOpacityBoxProps,
+} from '@components/index'
+
+// import {TouchableOpacityBox, TouchableOpacityBoxProps} from '@components/Box';
+
+import { ButtonVariant, buttonVariants } from './types'
 
 interface ButtonProps extends TouchableOpacityBoxProps {
-  title: string;
-  loading?: boolean;
-  variant?: ButtonVariant;
-  disabled?: boolean;
+  title: string
+  loading?: boolean
+  variant?: ButtonVariant
+  disabled?: boolean
 }
-
-import {Text, Loader} from '@components/index';
-
-import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box';
-
 export const Button = ({
   title,
   loading,
@@ -19,7 +24,7 @@ export const Button = ({
   disabled,
   ...rest
 }: ButtonProps) => {
-  const variants = buttonVariants[variant][disabled ? 'disabled' : 'default'];
+  const variants = buttonVariants[variant][disabled ? 'disabled' : 'default']
   return (
     <TouchableOpacityBox
       disabled={disabled || loading}
@@ -29,7 +34,8 @@ export const Button = ({
       borderRadius="s16"
       height={48}
       {...variants.container}
-      {...rest}>
+      {...rest}
+    >
       {loading ? (
         <Loader color={variants.content} />
       ) : (
@@ -38,5 +44,5 @@ export const Button = ({
         </Text>
       )}
     </TouchableOpacityBox>
-  );
-};
+  )
+}

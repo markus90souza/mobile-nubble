@@ -28,12 +28,12 @@ import {
   TrashIcon,
   CheckRoundIcon,
   MessageRoundIcon,
-} from './icons';
+} from './icons'
 
 export type IconBase = {
-  size?: number;
-  color?: string;
-};
+  size?: number
+  color?: string
+}
 
 export const icons = {
   arrowLeft: ArrowLeftIcon,
@@ -65,7 +65,7 @@ export const icons = {
   trash: TrashIcon,
   checkRound: CheckRoundIcon,
   messageRound: MessageRoundIcon,
-};
+}
 
-type IconType = typeof icons;
-export type IconName = keyof IconType;
+type IconType = typeof icons
+export type IconName = keyof IconType

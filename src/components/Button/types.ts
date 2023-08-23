@@ -1,18 +1,18 @@
-import {ThemeColors} from '../../theme';
-import {TouchableOpacityBoxProps} from '../Box';
+import { TouchableOpacityBoxProps } from '@components/Box'
+import { ThemeColors } from '@theme/index'
 
-export type ButtonVariant = 'outline' | 'primary';
+export type ButtonVariant = 'outline' | 'primary'
 
 interface ButtonUI {
-  container: TouchableOpacityBoxProps;
-  content: ThemeColors;
+  container: TouchableOpacityBoxProps
+  content: ThemeColors
 }
 
 export const buttonVariants: Record<
   ButtonVariant,
   {
-    default: ButtonUI;
-    disabled: ButtonUI;
+    default: ButtonUI
+    disabled: ButtonUI
   }
 > = {
   primary: {
@@ -45,4 +45,4 @@ export const buttonVariants: Record<
       content: 'gray2',
     },
   },
-};
+}

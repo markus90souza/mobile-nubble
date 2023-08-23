@@ -1,37 +1,35 @@
-import React from 'react';
-import {Text, Button, Screen} from '@components/index';
+import React from 'react'
 
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '@routes/Routes';
-import {useForm} from 'react-hook-form';
-import {LoginSchema, loginSchema} from './loginSchema';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {ControlledInput} from '@components/Form/ControlledInput';
-import {ControlledPasswordInput} from '@components/Form/ControlledIPasswordnput';
+import { ControlledInput } from '@components/Form/ControlledInput'
+import { ControlledPasswordInput } from '@components/Form/ControlledIPasswordnput'
+import { Text, Button, Screen } from '@components/index'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
+import { AuthScreenProps } from './../../../types/navigation'
+import { LoginSchema, loginSchema } from './loginSchema'
 
-export const LoginScreen = ({navigation}: ScreenProps) => {
-  const {control, formState, handleSubmit} = useForm<LoginSchema>({
+export const Login = ({ navigation }: AuthScreenProps<'login'>) => {
+  const { control, formState, handleSubmit } = useForm<LoginSchema>({
     mode: 'onChange',
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: '',
       password: '',
     },
-  });
+  })
 
   const handleLoginForm = (data: LoginSchema) => {
-    console.log(data);
-  };
+    console.log(data)
+  }
 
   const handleNavigateToSignUpScreen = () => {
-    navigation.navigate('SignUpScreen');
-  };
+    navigation.navigate('signUp')
+  }
 
   const handleNavigateForgotPasswordScreen = () => {
-    navigation.navigate('ForgotPasswordScreen');
-  };
+    navigation.navigate('forgotPassword')
+  }
   return (
     <Screen>
       <Text marginBottom="s8" preset="headingLarge">
@@ -67,7 +65,8 @@ export const LoginScreen = ({navigation}: ScreenProps) => {
         preset="paragraphSmall"
         bold
         mt="s10"
-        onPress={handleNavigateForgotPasswordScreen}>
+        onPress={handleNavigateForgotPasswordScreen}
+      >
         Esqueci minha senha
       </Text>
 
@@ -84,5 +83,5 @@ export const LoginScreen = ({navigation}: ScreenProps) => {
         onPress={handleNavigateToSignUpScreen}
       />
     </Screen>
-  );
-};
+  )
+}

@@ -1,15 +1,16 @@
-import React, {FC, ReactElement, useRef} from 'react';
-import {Pressable, TextInput, TextInputProps, TextStyle} from 'react-native';
-import {Text, Box, BoxProps} from '@components/index';
-import {$fontFamily, $fontSizes} from '@components/Text/types';
-import {useAppTheme} from '@hooks/useAppTheme';
-import {theme} from '@theme/index';
+import React, { FC, ReactElement, useRef } from 'react'
+import { Pressable, TextInput, TextInputProps, TextStyle } from 'react-native'
+
+import { Text, Box, BoxProps } from '@components/index'
+import { $fontFamily, $fontSizes } from '@components/Text/types'
+import { useAppTheme } from '@hooks/useAppTheme'
+import { theme } from '@theme/index'
 
 export interface InputProps extends TextInputProps {
-  label: string;
-  errorMessage?: string;
-  RightComponent?: ReactElement;
-  boxProps?: BoxProps;
+  label: string
+  errorMessage?: string
+  RightComponent?: ReactElement
+  boxProps?: BoxProps
 }
 
 export const Input: FC<InputProps> = ({
@@ -19,12 +20,12 @@ export const Input: FC<InputProps> = ({
   boxProps,
   ...rest
 }) => {
-  const {colors} = useAppTheme();
-  const inputRef = useRef<TextInput>(null);
+  const { colors } = useAppTheme()
+  const inputRef = useRef<TextInput>(null)
 
   const handleFocus = () => {
-    inputRef.current?.focus();
-  };
+    inputRef.current?.focus()
+  }
 
   const $boxStyles: BoxProps = {
     flexDirection: 'row',
@@ -33,7 +34,7 @@ export const Input: FC<InputProps> = ({
     borderColor: errorMessage ? 'error' : 'gray4',
     padding: 's16',
     borderRadius: 's12',
-  };
+  }
 
   return (
     <Box {...boxProps}>
@@ -65,8 +66,8 @@ export const Input: FC<InputProps> = ({
         )}
       </Pressable>
     </Box>
-  );
-};
+  )
+}
 
 const $inputStyle: TextStyle = {
   flexGrow: 1,
@@ -75,4 +76,4 @@ const $inputStyle: TextStyle = {
   color: theme.colors.grayBlack,
   fontFamily: $fontFamily.regular,
   ...$fontSizes.paragraphMedium,
-};
+}
