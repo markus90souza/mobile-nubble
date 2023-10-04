@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Dimensions, Image } from 'react-native'
+import { Dimensions, Image, StyleProp, ViewStyle } from 'react-native'
 
 import { Post } from '@domain/Post'
 
@@ -14,6 +14,7 @@ export const PostImage: FC<Props> = ({ imageURL }) => {
       style={{
         width: Dimensions.get('screen').width,
         height: 300,
+        marginHorizontal: -24,
       }}
     />
   )

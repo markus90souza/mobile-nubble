@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react'
-import { FlatList, ListRenderItemInfo } from 'react-native'
+import {
+  FlatList,
+  ListRenderItemInfo,
+  StyleProp,
+  ViewStyle,
+} from 'react-native'
 
 import { Screen } from '@components/index'
 import { PostItem } from '@components/PostItem'
@@ -18,7 +23,7 @@ export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
   }
 
   return (
-    <Screen>
+    <Screen style={$screen}>
       <FlatList
         data={posts}
         keyExtractor={(item) => item.id}
@@ -26,4 +31,10 @@ export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
       />
     </Screen>
   )
+}
+
+const $screen: StyleProp<ViewStyle> = {
+  paddingBottom: 0,
+  paddingHorizontal: 0,
+  paddingTop: 0,
 }

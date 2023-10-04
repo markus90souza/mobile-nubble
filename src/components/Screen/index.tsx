@@ -1,14 +1,20 @@
 import React, { FC, ReactNode } from 'react'
 import { KeyboardAvoidingView, Platform } from 'react-native'
 
-import { Box, Icon, Text, TouchableOpacityBox } from '@components/index'
+import {
+  Box,
+  BoxProps,
+  Icon,
+  Text,
+  TouchableOpacityBox,
+} from '@components/index'
 import { useAppSafeArea } from '@hooks/useAppSafeArea'
 import { useAppTheme } from '@hooks/useAppTheme'
 import { useNavigation } from '@react-navigation/native'
 
 import { ScrollContainer, ViewContainer } from './components/Container'
 
-interface ScreenProps {
+interface ScreenProps extends BoxProps {
   children: ReactNode
   canGoBack?: boolean
   scrollable?: boolean
@@ -18,6 +24,8 @@ export const Screen: FC<ScreenProps> = ({
   children,
   canGoBack = false,
   scrollable = false,
+  style,
+  ...boxProps
 }) => {
   const { top, bottom } = useAppSafeArea()
 
@@ -36,9 +44,9 @@ export const Screen: FC<ScreenProps> = ({
     >
       <Container backgroundColor={colors.background}>
         <Box
-          paddingBottom="s24"
           paddingHorizontal="s24"
-          style={{ paddingTop: top, paddingBottom: bottom }}
+          style={[{ paddingTop: top, paddingBottom: bottom }, style]}
+          {...boxProps}
         >
           {canGoBack && (
             <TouchableOpacityBox
