@@ -15,7 +15,7 @@ export type AuthStackParamList = {
     icon: Pick<IconProps, 'name' | 'color'>
   }
 }
-const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>()
+const { Navigator, Screen } = createNativeStackNavigator<AuthStackParamList>()
 
 export const AuthStack = () => {
   return (

@@ -1,26 +1,29 @@
-import { Text, StyleSheet } from 'react-native'
+import { useEffect, useState } from 'react'
+import { FlatList, ListRenderItemInfo } from 'react-native'
 
-import { Button } from '@components/Button'
-import { Screen } from '@components/Screen'
+import { Screen } from '@components/index'
+import { PostItem } from '@components/PostItem'
+import { Post, postService } from '@domain/Post'
 
-import { AppStackProps } from './../../../types/navigation'
+import { AppTabScreenProps } from './../../../types/navigation'
 
-export const Home = ({ navigation }: AppStackProps<'home'>) => {
+export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
+  const [posts, setPosts] = useState<Post[]>([])
+  useEffect(() => {
+    postService.getList().then((post) => setPosts(post))
+  }, [])
+
+  function renderItem({ item }: ListRenderItemInfo<Post>) {
+    return <PostItem post={item} />
+  }
+
   return (
     <Screen>
-      <Text style={styles.title}>Home</Text>
-      <Button
-        title="Settings"
-        onPress={() => navigation.navigate('settings')}
+      <FlatList
+        data={posts}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
       />
     </Screen>
   )
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontWeight: 'bold',
-    fontSize: 22,
-    color: '#fff',
-  },
-})

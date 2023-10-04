@@ -17,6 +17,7 @@ interface ButtonProps extends TouchableOpacityBoxProps {
   variant?: ButtonVariant
   disabled?: boolean
 }
+
 export const Button = ({
   title,
   loading,

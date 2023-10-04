@@ -1,21 +1,17 @@
-import { Text, StyleSheet } from 'react-native'
-
+import { Button, Text } from '@components/index'
 import { Screen } from '@components/Screen'
 
-import { AppStackProps } from '../../../types/navigation'
+import { AppScreenProps } from '../../../types/navigation'
 
-export function Settings({ navigation }: AppStackProps<'settings'>) {
+export function Settings({ navigation }: AppScreenProps<'settings'>) {
   return (
     <Screen canGoBack>
-      <Text style={styles.title}>Settings</Text>
+      <Text preset="headingSmall">Settings</Text>
+
+      <Button
+        title="Novo Post"
+        onPress={() => navigation.navigate('appTabs', { screen: 'newPost' })}
+      />
     </Screen>
   )
 }
-
-const styles = StyleSheet.create({
-  title: {
-    fontWeight: 'bold',
-    fontSize: 22,
-    color: '#fff',
-  },
-})

@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   extends: ['@react-native-community', '@rocketseat/eslint-config/react'],
   plugins: ['import'],
+  rules: {},
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.d.ts'],
