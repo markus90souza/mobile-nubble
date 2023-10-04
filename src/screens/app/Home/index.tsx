@@ -11,6 +11,7 @@ import { PostItem } from '@components/PostItem'
 import { Post, postService } from '@domain/Post'
 
 import { AppTabScreenProps } from './../../../types/navigation'
+import { HomeHeader } from './components/home-header'
 
 export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
   const [posts, setPosts] = useState<Post[]>([])
@@ -28,6 +29,7 @@ export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
         data={posts}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
+        ListHeaderComponent={<HomeHeader />}
       />
     </Screen>
   )
