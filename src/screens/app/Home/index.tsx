@@ -16,7 +16,7 @@ import { HomeHeader } from './components/home-header'
 export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
   const [posts, setPosts] = useState<Post[]>([])
   useEffect(() => {
-    postService.getList().then((post) => setPosts(post))
+    postService.getPosts().then((post) => setPosts(post))
   }, [])
 
   function renderItem({ item }: ListRenderItemInfo<Post>) {
