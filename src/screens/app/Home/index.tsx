@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   FlatList,
   ListRenderItemInfo,
+  RefreshControl,
   StyleProp,
   ViewStyle,
 } from 'react-native'
@@ -9,47 +10,42 @@ import {
 import { Screen } from '@components/index'
 import { PostItem } from '@components/PostItem'
 import { Post, postService } from '@domain/Post'
+import { useGetPosts } from '@domain/Post/use-cases/useGetPosts'
+import { useScrollToTop } from '@react-navigation/native'
 
 import { AppTabScreenProps } from './../../../types/navigation'
 import { HomeEmpty } from './components/home-empty'
 import { HomeHeader } from './components/home-header'
 
 export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
-  const [posts, setPosts] = useState<Post[]>([])
-  const [loading, setLoading] = useState(true)
-  const [erro, setErro] = useState<Error | null>(null)
-  const fetchdata = async () => {
-    try {
-      setLoading(true)
-      const data = await postService.getPosts()
-
-      setPosts(data)
-    } catch (error) {
-      console.log('Erro', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-  useEffect(() => {
-    fetchdata()
-  }, [])
+  const { erro, loading, list: posts, refresh, nextPage } = useGetPosts()
 
   function renderItem({ item }: ListRenderItemInfo<Post>) {
     return <PostItem post={item} />
   }
 
+  const homeFlatlistRef = useRef<FlatList<Post>>(null)
+  useScrollToTop(homeFlatlistRef)
   return (
     <Screen style={$screen} flex={1}>
       <FlatList
+        ref={homeFlatlistRef}
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           flex: posts.length === 0 ? 1 : undefined,
         }}
         data={posts}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
+        onEndReached={nextPage}
+        onEndReachedThreshold={0.1}
+        refreshing={loading}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={refresh} />
+        }
         ListHeaderComponent={<HomeHeader />}
         ListEmptyComponent={
-          <HomeEmpty refetch={fetchdata} error={erro} loading={loading} />
+          <HomeEmpty refetch={refresh} error={erro} loading={loading} />
         }
       />
     </Screen>
