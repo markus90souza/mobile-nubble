@@ -64,5 +64,6 @@ export function usePaginateList<Data>(
     list,
     refresh: getInitialData,
     nextPage,
+    hasNextPage,
   }
 }

@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Favorites } from '@screens/app/Favorites'
-import { Home } from '@screens/app/Home'
-import { NewPost } from '@screens/app/NewPost'
-import { Profile } from '@screens/app/Profile'
+import { Favorites } from '@screens/app/favorites'
+import { Home } from '@screens/app/home'
+import { NewPost } from '@screens/app/new-post'
+import { Profile } from '@screens/app/profile'
 
 import { AppTabBar } from './components/AppTabBar'
 
@@ -18,6 +18,7 @@ const Tab = createBottomTabNavigator<AppTabParamList>()
 export const AppTabs = () => {
   return (
     <Tab.Navigator
+      // eslint-disable-next-line react/no-unstable-nested-components
       tabBar={(props) => <AppTabBar {...props} />}
       screenOptions={{ headerShown: false }}
     >

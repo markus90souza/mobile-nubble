@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ControlledInput } from '@components/Form/ControlledInput'
+import { ControlledInput } from '@components/form/ControlledInput'
 import { Screen, Text, Button } from '@components/index'
 import { zodResolver } from '@hookform/resolvers/zod'
 // import {useResetNavigation} from '@hooks/useResetNavigation';
@@ -13,6 +13,7 @@ import {
 } from './forgotPasswordSchema'
 
 export const ForgotPassword = ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   navigation,
 }: AuthScreenProps<'forgotPassword'>) => {
   // const {reset} = useResetNavigation();

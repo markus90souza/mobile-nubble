@@ -1,4 +1,4 @@
-import { IconProps } from '@components/Icon'
+import { IconProps } from '@components/icon'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ForgotPassword } from '@screens/auth/ForgotPassword'
 import { Login } from '@screens/auth/Login'

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { IconBase } from '@components/Icon/types'
+import { IconBase } from '@components/icon/types'
 import { Svg, Path } from 'react-native-svg'
 
 export const ArrowRightIcon: FC<IconBase> = ({
