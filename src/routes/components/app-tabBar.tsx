@@ -1,7 +1,7 @@
 import { Box, Icon, Text, TouchableOpacityBox } from '@components/index'
 import { useAppSafeArea } from '@hooks/useAppSafeArea'
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs'
-import { AppTabParamList } from '@routes/AppTabs'
+import { AppTabParamList } from '@routes/app-tabs'
 import { $shadowProps } from '@theme/index'
 
 import { mapScreenToProps } from './types'

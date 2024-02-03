@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 
-import { AppStack } from './AppStack'
-import { AuthStack } from './AuthStack'
+import { AppStack } from './app-stack'
+import { AuthStack } from './auth-stack'
 
 export const Router = () => {
   const isAuth = true

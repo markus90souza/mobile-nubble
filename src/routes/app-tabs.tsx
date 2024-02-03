@@ -4,7 +4,7 @@ import { Home } from '@screens/app/home'
 import { NewPost } from '@screens/app/new-post'
 import { Profile } from '@screens/app/profile'
 
-import { AppTabBar } from './components/AppTabBar'
+import { AppTabBar } from './components/app-tabBar'
 
 export type AppTabParamList = {
   home: undefined

@@ -1,9 +1,8 @@
 import { NavigatorScreenParams } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { PostComment } from '@screens/app/post-comment'
-import { Settings } from '@screens/app/settings'
+import { Settings, PostComment } from '@screens/app'
 
-import { AppTabParamList, AppTabs } from './AppTabs'
+import { AppTabParamList, AppTabs } from './app-tabs'
 
 export type AppStackParamList = {
   appTabs: NavigatorScreenParams<AppTabParamList>
