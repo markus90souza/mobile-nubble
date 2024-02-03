@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { FlatList, ListRenderItemInfo } from 'react-native'
+import { FlatList } from 'react-native'
 
 import { Box } from '@components/index'
 import { Screen } from '@components/screen'
