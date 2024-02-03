@@ -10,7 +10,7 @@ type Props = {
   comments: PostComment
 }
 
-export const CommentItem: FC<Props> = ({ comments }) => {
+export const CommentCard: FC<Props> = ({ comments }) => {
   return (
     <Box flexDirection="row" alignItems="center" gap="s12" marginBottom="s16">
       <Avatar imageURL={comments.author.profileURL} />

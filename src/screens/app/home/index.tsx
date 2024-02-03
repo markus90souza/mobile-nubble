@@ -22,6 +22,8 @@ import { HomeHeader } from './components/home-header'
 export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
   const { erro, loading, list: posts, refresh, nextPage } = useGetPosts()
 
+  console.log(posts)
+
   function renderItem({ item }: ListRenderItemInfo<Post>) {
     return <PostItem post={item} />
   }
