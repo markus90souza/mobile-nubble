@@ -5,7 +5,7 @@ import { Box, BoxProps } from '@components/index'
 import { useAppSafeArea } from '@hooks/useAppSafeArea'
 import { useAppTheme } from '@hooks/useAppTheme'
 
-import { ScrollContainer, ViewContainer } from './components/Container'
+import { ScrollContainer, ViewContainer } from './components/container'
 import { ScreenHeader } from './components/screen-header'
 
 export interface ScreenProps extends BoxProps {
