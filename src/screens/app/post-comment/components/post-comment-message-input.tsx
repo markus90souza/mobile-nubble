@@ -1,24 +1,19 @@
 import React, { FC, useState } from 'react'
-import { Keyboard } from 'react-native'
 
 import { MessageInput } from '@components/message-input'
-import { usePostCommentCreate } from '@domain/post-comment/use-cases'
+// import { usePostCommentCreate } from '@domain/post-comment/use-cases'
 
 type Props = {
   postId: number
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const PostCommentMessageInput: FC<Props> = ({ postId }) => {
   const [message, setMessage] = useState('')
-  const { createComment } = usePostCommentCreate(postId, {
-    onSuccess: (_) => {
-      setMessage('')
-      Keyboard.dismiss()
-    },
-  })
+  // const { createComment } = usePostCommentCreate(postId)
 
   const handleCreateComment = async () => {
-    await createComment(message)
+    // await createComment(message)
   }
 
   return (
