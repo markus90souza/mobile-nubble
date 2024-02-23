@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ControlledInput } from '@components/form/ControlledInput'
-import { ControlledPasswordInput } from '@components/form/ControlledIPasswordnput'
+import { ControlledPasswordInput } from '@components/form/ControlledPasswordnput'
 import { Text, Button, Screen } from '@components/index'
 import { zodResolver } from '@hookform/resolvers/zod'
 // import {useResetNavigation} from '@hooks/useResetNavigation';

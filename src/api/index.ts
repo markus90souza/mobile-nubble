@@ -1,8 +1,8 @@
 import { api } from './api'
 import {
-  type MetaDataPageApi,
+  type MetaDataPageAPI,
   type PageAPI,
   type PageParams,
 } from './api.types'
 
-export { MetaDataPageApi, PageAPI, PageParams, api }
+export { MetaDataPageAPI, PageAPI, PageParams, api }

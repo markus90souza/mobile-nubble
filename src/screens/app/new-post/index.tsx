@@ -5,14 +5,12 @@ import { Screen } from '@components/screen'
 
 import { AppTabScreenProps } from '../../../types/navigation'
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const NewPost = ({ navigation }: AppTabScreenProps<'newPost'>) => {
   return (
     <Screen>
       <Text style={styles.title}>NOVA POSTAGEM</Text>
-      <Button
-        title="Settings"
-        onPress={() => navigation.navigate('settings')}
-      />
+      <Button title="Settings" />
     </Screen>
   )
 }

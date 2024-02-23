@@ -2,22 +2,17 @@ import React, { FC, useState } from 'react'
 import { Keyboard } from 'react-native'
 
 import { MessageInput } from '@components/message-input'
-import { useCreatePostComment } from '@domain/post-comment/use-cases'
+import { usePostCommentCreate } from '@domain/post-comment/use-cases'
 
 type Props = {
   postId: number
-  onCommentCreate: () => void
 }
 
-export const PostCommentMessageInput: FC<Props> = ({
-  postId,
-  onCommentCreate,
-}) => {
+export const PostCommentMessageInput: FC<Props> = ({ postId }) => {
   const [message, setMessage] = useState('')
-  const { createComment } = useCreatePostComment(postId, {
-    onSuccess: () => {
+  const { createComment } = usePostCommentCreate(postId, {
+    onSuccess: (_) => {
       setMessage('')
-      onCommentCreate()
       Keyboard.dismiss()
     },
   })

@@ -11,7 +11,6 @@ export const PostImage: FC<Props> = ({ imageURL }) => {
       source={{ uri: imageURL }}
       resizeMode="cover"
       alt=""
-      // eslint-disable-next-line react-native/no-inline-styles
       style={{
         width: Dimensions.get('screen').width,
         height: 300,

@@ -30,7 +30,6 @@ export const Screen: FC<ScreenProps> = ({
 
   return (
     <KeyboardAvoidingView
-      // eslint-disable-next-line react-native/no-inline-styles
       style={{ flex: 1 }}
       behavior={Platform.OS === 'android' ? undefined : 'padding'}
     >

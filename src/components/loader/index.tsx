@@ -5,10 +5,10 @@ import { useTheme } from '@shopify/restyle'
 import { Theme, ThemeColors } from '@theme/index'
 
 interface LoaderProps extends Omit<ActivityIndicatorProps, 'color'> {
-  color: ThemeColors
+  color?: ThemeColors
 }
 
-export const Loader = ({ color }: LoaderProps) => {
+export const Loader = ({ color = 'primary' }: LoaderProps) => {
   const { colors } = useTheme<Theme>()
   return <ActivityIndicator color={colors[color]} />
 }

@@ -1,13 +1,13 @@
 /* eslint-disable camelcase */
 import { api, PageAPI, PageParams } from '@api/index'
 
-import { PostCommentAPI } from './post-comments.types'
+import { PostCommentAPI } from './post-comment.types'
 
 type PostData = PageAPI<PostCommentAPI>
 
 const PATH = 'user/post_comment'
 
-const getComments = async (
+const list = async (
   post_id: number,
   pageParams?: PageParams,
 ): Promise<PostData> => {
@@ -18,11 +18,10 @@ const getComments = async (
     },
   })
 
-  console.log('Api =>', data)
   return data
 }
 
-const createComment = async (
+const create = async (
   post_id: number,
   message: string,
 ): Promise<PostCommentAPI> => {
@@ -31,9 +30,7 @@ const createComment = async (
   return data
 }
 
-const removeComment = async (
-  postCommentId: number,
-): Promise<{ message: string }> => {
+const remove = async (postCommentId: number): Promise<{ message: string }> => {
   const { data } = await api.delete<{ message: string }>(
     `${PATH}/${postCommentId}`,
   )
@@ -42,7 +39,7 @@ const removeComment = async (
 }
 
 export const postCommentAPI = {
-  getComments,
-  createComment,
-  removeComment,
+  list,
+  create,
+  remove,
 }

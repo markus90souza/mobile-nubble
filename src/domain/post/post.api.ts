@@ -13,7 +13,6 @@ const getPosts = async ({ page, per_page }: PageParams): Promise<PostData> => {
     },
   })
 
-  console.log(data)
   return data
 }
 

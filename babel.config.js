@@ -4,8 +4,10 @@ module.exports = {
     [
       'module-resolver',
       {
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
         root: ['.'],
         alias: {
+          '@infra': './src/infra',
           '@types': './src/types',
           '@assets': './src/assets',
           '@components': './src/components',
@@ -16,6 +18,8 @@ module.exports = {
           '@theme': './src/theme',
           '@brand': './src/brand',
           '@api': './src/api',
+          '@libs': './src/libs',
+          '@/': './src',
         },
       },
     ],

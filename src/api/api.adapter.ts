@@ -1,8 +1,8 @@
 import { MetaDataPage } from '../types/page'
 
-import { MetaDataPageApi } from './api.types'
+import { MetaDataPageAPI } from './api.types'
 
-const toMetadataPage = (meta: MetaDataPageApi): MetaDataPage => {
+const toMetadataPage = (meta: MetaDataPageAPI): MetaDataPage => {
   return {
     total: meta.total,
     currentPage: meta.current_page,

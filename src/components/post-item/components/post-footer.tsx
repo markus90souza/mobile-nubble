@@ -21,7 +21,7 @@ export const PostFooter: FC<Props> = ({ author, text, commentCount, id }) => {
 
   const { navigate } = useNavigation()
   const handleNavigateToPostComment = () => {
-    navigate('postComment', { postId: id })
+    navigate('postComment', { postId: id, postAuthorId: author.id })
   }
 
   return (

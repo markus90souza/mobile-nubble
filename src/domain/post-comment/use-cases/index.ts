@@ -1,4 +1,5 @@
-import { useCreatePostComment } from './useCreatePostComment'
-import { useGetPostComments } from './useGetPostComments'
+import { usePostCommentCreate } from './usePostCommentCreate'
+import { usePostCommentList } from './usePostCommentList'
+import { usePostCommentRemove } from './usePostCommentRemove'
 
-export { useCreatePostComment, useGetPostComments }
+export { usePostCommentList, usePostCommentCreate, usePostCommentRemove }

@@ -9,7 +9,7 @@ export interface PostComment {
   }
   created_at: string
 }
-
+// interface de dados vindo da api
 export interface PostCommentAPI {
   id: number // 114
   message: string // 'Porro illum occaecati quidem hic.'

@@ -8,7 +8,9 @@ import { AppTabBar } from './components/app-tabBar'
 
 export type AppTabParamList = {
   home: undefined
-  profile: undefined
+  profile: {
+    userId: number
+  }
   favorites: undefined
   newPost: undefined
 }

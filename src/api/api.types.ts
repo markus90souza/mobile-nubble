@@ -1,4 +1,4 @@
-export interface MetaDataPageApi {
+export interface MetaDataPageAPI {
   total: number // 24,
   per_page: number // 10,
   current_page: number // 1,
@@ -16,7 +16,7 @@ export interface MetaDataPageApi {
  */
 
 export interface PageAPI<Data> {
-  meta: MetaDataPageApi
+  meta: MetaDataPageAPI
   data: Data[]
 }
 

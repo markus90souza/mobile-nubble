@@ -5,14 +5,14 @@ import {
   postCommentAPI,
 } from '@domain/post-comment'
 
-import { Page } from '../../types/page'
+import { Page } from '@/types/page'
 
 type Props = Page<PostComment>
 
-const PER_PAGE = 5
+const PER_PAGE = 10
 
 const getComments = async (postId: number, page: number): Promise<Props> => {
-  const postCommentData = await postCommentAPI.getComments(postId, {
+  const postCommentData = await postCommentAPI.list(postId, {
     page,
     per_page: PER_PAGE,
   })
@@ -26,18 +26,18 @@ const createComment = async (
   postId: number,
   message: string,
 ): Promise<PostComment> => {
-  const data = await postCommentAPI.createComment(postId, message)
+  const data = await postCommentAPI.create(postId, message)
 
   return PostCommentAdapter.toPostComment(data)
 }
 
-const removeComment = async (postCommentId: number): Promise<string> => {
-  const data = await postCommentAPI.removeComment(postCommentId)
-  return data.message
+async function remove(postCommentId: number): Promise<string> {
+  const response = await postCommentAPI.remove(postCommentId)
+  return response.message
 }
 
 export const postCommentService = {
   getComments,
   createComment,
-  removeComment,
+  remove,
 }

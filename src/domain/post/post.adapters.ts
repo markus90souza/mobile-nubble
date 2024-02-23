@@ -5,6 +5,7 @@ const toPost = (postAPI: PostAPI): Post => {
     id: postAPI.id,
     text: postAPI.text,
     author: {
+      id: postAPI.user.id,
       name: postAPI.user.full_name,
       profileURL: postAPI.user.profile_url,
       userName: postAPI.user.username,

@@ -1,8 +1,14 @@
 module.exports = {
   root: true,
-  extends: ['@react-native-community', '@rocketseat/eslint-config/react'],
-  plugins: ['import'],
-  rules: {},
+  extends: [
+    '@react-native-community',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
+    '@rocketseat/eslint-config/react',
+  ],
+  plugins: ['import', '@tanstack/query'],
+  rules: {
+    'react-native/no-inline-styles': 'off',
+  },
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.d.ts'],

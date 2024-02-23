@@ -11,7 +11,6 @@ export const ScrollContainer: FC<Props> = ({ children, backgroundColor }) => {
     <ScrollView
       showsVerticalScrollIndicator={false}
       keyboardShouldPersistTaps={'handled'}
-      // eslint-disable-next-line react-native/no-inline-styles
       style={{ backgroundColor, flex: 1 }}
     >
       {children}
@@ -20,6 +19,5 @@ export const ScrollContainer: FC<Props> = ({ children, backgroundColor }) => {
 }
 
 export const ViewContainer: FC<Props> = ({ children, backgroundColor }) => {
-  // eslint-disable-next-line react-native/no-inline-styles
   return <View style={{ backgroundColor, flex: 1 }}>{children}</View>
 }

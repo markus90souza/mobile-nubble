@@ -20,9 +20,7 @@ import { HomeHeader } from './components/home-header'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
-  const { erro, loading, list: posts, refresh, nextPage } = useGetPosts()
-
-  console.log(posts)
+  const { isError, isLoading, list: posts, refresh, nextPage } = useGetPosts()
 
   function renderItem({ item }: ListRenderItemInfo<Post>) {
     return <PostItem post={item} />
@@ -35,7 +33,6 @@ export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
       <FlatList
         ref={homeFlatlistRef}
         showsVerticalScrollIndicator={false}
-        // eslint-disable-next-line react-native/no-inline-styles
         contentContainerStyle={{
           flex: posts.length === 0 ? 1 : undefined,
         }}
@@ -44,13 +41,13 @@ export const Home = ({ navigation }: AppTabScreenProps<'home'>) => {
         renderItem={renderItem}
         onEndReached={nextPage}
         onEndReachedThreshold={0.1}
-        refreshing={loading}
+        refreshing={isLoading}
         refreshControl={
-          <RefreshControl refreshing={loading} onRefresh={refresh} />
+          <RefreshControl refreshing={isLoading} onRefresh={refresh} />
         }
         ListHeaderComponent={<HomeHeader />}
         ListEmptyComponent={
-          <HomeEmpty refetch={refresh} error={erro} loading={loading} />
+          <HomeEmpty refetch={refresh} error={isError} loading={isLoading} />
         }
       />
     </Screen>

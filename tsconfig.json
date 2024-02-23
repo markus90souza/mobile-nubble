@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@types/*":["src/types/*"],
+      "@infra/*":["./src/infra/*"],
+      "@types/*":["./src/types/*"],
       "@assets/*":["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@domain/*":["./src/domain/*"],
@@ -12,7 +13,9 @@
       "@screens/*":["./src/screens/*"],
       "@theme/*":["./src/theme/*"],
       "@brand/*":["./src/brand/*"],
-      "@api/*":["./src/api/*"]
+      "@api/*":["./src/api/*"],
+      "@libs/*":["./src/libs/*"],
+      "@/*": ["./src/*"]
     }
 
   }

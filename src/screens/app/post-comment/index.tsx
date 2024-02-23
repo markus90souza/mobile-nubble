@@ -3,22 +3,17 @@ import { FlatList } from 'react-native'
 
 import { Box } from '@components/index'
 import { Screen } from '@components/screen'
-import { useGetPostComments } from '@domain/post-comment/use-cases'
+import { usePostCommentList } from '@domain/post-comment/use-cases'
 import { useAppSafeArea } from '@hooks/useAppSafeArea'
 
-import { AppScreenProps } from '../../../types/navigation'
-
 import { ReadMore, CommentCard, PostCommentMessageInput } from './components'
+
+import { AppScreenProps } from '@/types/navigation'
 
 export const PostComment: FC<AppScreenProps<'postComment'>> = ({ route }) => {
   const { postId } = route.params
 
-  const {
-    list: comments,
-    nextPage,
-    hasNextPage,
-    refresh,
-  } = useGetPostComments(postId)
+  const { list: comments, nextPage, hasNextPage } = usePostCommentList(postId)
 
   const { bottom } = useAppSafeArea()
 
@@ -35,7 +30,7 @@ export const PostComment: FC<AppScreenProps<'postComment'>> = ({ route }) => {
           }
         />
 
-        <PostCommentMessageInput postId={postId} onCommentCreate={refresh} />
+        <PostCommentMessageInput postId={postId} />
       </Box>
     </Screen>
   )
